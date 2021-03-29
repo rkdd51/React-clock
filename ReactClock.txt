@@ -1,0 +1,90 @@
+//////////////////////////////////////////  INDEX.JS FILE  /////////////////////////////////////////////////////
+
+
+
+import React from "react"
+import ReactDOM from "react-dom";
+import "./index.css"
+import App from "./App";
+ReactDOM.render( <App/>, document.getElementById('root'));
+
+
+
+
+//////////////////////////////////////////  INDEX.CSS FILE //////////////////////////////////////////////////
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box;
+  background-color: antiquewhite;
+  
+} 
+
+.heading{
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+button{
+ 
+ padding: 15px 20px;
+  
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+ margin-left: 650px;
+ 
+  background:plum;
+  color:white;
+  border:5px solid aqua;
+  outline:none;
+  border-radius:5px;
+  text-transform:uppercase;
+}
+
+
+
+
+//////////////////////////////////////////   APP.JS FILE  /////////////////////////////////////////////////////////
+
+
+//Get time using HOOKS
+
+
+import React, {useState} from 'react';
+
+const App = ()=> {
+
+    let newTime = new Date().toLocaleTimeString();
+
+    const [currentTime,setTime] = useState(newTime);
+     
+    const UpdateTime = () => {
+        newTime = new Date().toLocaleTimeString();
+
+        setTime(newTime);
+
+    }
+
+    return (
+
+        <>
+        <h1 className="heading"> {currentTime}</h1>
+        <button onClick={UpdateTime}>Get time</button>
+
+
+        </>
+
+
+    );
+}
+
+export default App;
+
